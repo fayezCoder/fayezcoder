@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# 1. Force HTTPS (Disabled for localhost)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Redirect index.html to ./ (Canonicalization)
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^index\.html$ ./ [L,R=301]
+
+# 3. Optional: Remove .html extension from other pages if they existed (not needed for SPA/single page but good practice)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^([^\.]+)$ $1.html [NC,L]
