@@ -91,7 +91,7 @@ document.getElementById('submitButton').addEventListener('click', function (even
     }
 
     // Define the recipient's phone number in the correct format with country code
-    const recipientPhone = "966593673722"; // Replace '966' with your country code and remove leading '0'
+    const recipientPhone = "966555861780"; // Fayez Almutairi - WhatsApp
 
     // Construct WhatsApp message
     const whatsappMessage = `Hello!%0A%0AMy name is: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0APhone: ${encodeURIComponent(phone)}%0AMessage: ${encodeURIComponent(message)}`;

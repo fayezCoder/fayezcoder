@@ -45,7 +45,7 @@
                 $extraMeta = $proj['extra_meta'][CURRENT_LANG] ?? $proj['extra_meta']['en'];
                 $accent = $proj['accent'] ?? 'secondary';
             ?>
-            <div class="project-card rounded-2xl bg-surface-container-low overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] group border border-outline-variant/20 hover:border-<?= $accent ?>/50" data-category="<>= htmlspecialchars($proj['category']) ?>">
+            <div class="project-card rounded-2xl bg-surface-container-low overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] group border border-outline-variant/20 hover:border-<?= $accent ?>/50" data-category="<?= htmlspecialchars($proj['category'], ENT_QUOTES) ?>">
                 <div class="flex flex-col">
                     <!-- Upper Viewport / Device frame preview -->
                     <div class="relative w-full h-56 bg-surface-container-high overflow-hidden flex items-center justify-center p-space-md">

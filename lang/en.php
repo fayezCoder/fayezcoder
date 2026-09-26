@@ -15,7 +15,7 @@ return [
 
 
     'nav' => [
-        'brand' => 'FayezCoder',
+        'brand' => 'Fayez Almutairi',
 
         'sub' => 'Mobile & Web Dev',
 
@@ -59,7 +59,7 @@ return [
 
         'proof_console' => 'Google Play Console Publisher',
 
-        'terminal_host' => 'fayezcoder@core:~/sys/prod',
+        'terminal_host' => 'fayezalmutairi@core:~/sys/prod',
 
         'terminal_status' => 'ACTIVE',
 
@@ -253,7 +253,7 @@ return [
 
         'heading' => 'Let\'s Build Something Exceptional Together',
 
-        'desc' => 'Whether you need a full native mobile app built from scratch, offline aviation workflows, a high-converting web platform, or specialized WordPress tools — send your specifications directly.',
+        'desc' => 'Whether you need a full native mobile app built from scratch, offline aviation workflows, a high-converting web platform, or specialized WordPress tools — send your specifications straight to my WhatsApp.',
 
         'location_title' => 'Riyadh, Saudi Arabia',
 
@@ -263,7 +263,9 @@ return [
 
         'response_sub' => 'Within 2 hours on active business days',
 
-        'channels_title' => 'Developer Channels',
+        'channels_title' => 'Direct Channels',
+
+        'wa_prefill' => 'Hello Fayez, I would like to discuss a project with you.',
 
         'form_name' => 'Your Full Name *',
 
@@ -291,15 +293,15 @@ return [
 
         'form_msg_ph' => 'Provide a summary of your requirements, current pain points, and target launch date...',
 
-        'encryption_note' => 'Direct end-to-end confidential transmission',
+        'encryption_note' => 'Submitting opens a direct WhatsApp chat with Fayez — nothing is stored on a server.',
 
-        'btn_submit' => 'Send Message',
+        'btn_submit' => 'Send via WhatsApp',
 
-        'btn_sending' => 'Encrypting & Sending...',
+        'btn_sending' => 'Opening WhatsApp...',
 
-        'btn_sent' => 'Message Delivered',
+        'btn_sent' => 'WhatsApp Opened',
 
-        'success_alert' => 'Thank you, %s! Your inquiry was received. Fayez will respond within 2 hours.',
+        'success_alert' => 'Thanks! WhatsApp is opening in a new tab with your request pre-filled.',
 
         'error_alert' => 'Please fill in all required fields accurately.',
 
@@ -324,7 +326,7 @@ return [
 
         'license_type' => 'Saudi Freelance License',
 
-        'rights' => 'All rights reserved © Fayez Al-Mutairi (FayezCoder) ' . date('Y'),
+        'rights' => 'All rights reserved © Fayez Almutairi ' . date('Y'),
         'version' => 'v3.4.0 • PRODUCTION',
 
     ]

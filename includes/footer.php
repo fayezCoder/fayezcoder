@@ -9,8 +9,8 @@
             <!-- Col 1: Brand & Bio (md:col-span-5) -->
             <div class="md:col-span-5 flex flex-col gap-space-md">
                 <div class="flex items-center gap-space-sm">
-                    <img alt="FayezCoder Modern Tech Logo" class="h-8 w-auto object-contain" src="assets/img/showcase/logo.png" />
-                    <span class="font-headline-md text-headline-md text-on-surface font-bold">FayezCoder</span>
+                    <img alt="<?= __t('nav.brand') ?> Logo" class="h-8 w-auto object-contain" src="assets/img/showcase/logo.png" />
+                    <span class="font-headline-md text-headline-md text-on-surface font-bold"><?= __t('nav.brand') ?></span>
                 </div>
                 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">
                     <?= __t('footer.brand_desc') ?>
@@ -25,7 +25,7 @@
                     <a aria-label="TikTok Profile" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-tertiary transition-colors border border-outline-variant/20" href="https://www.tiktok.com/@fayezdevs" rel="noopener noreferrer" target="_blank">
                         <span class="material-symbols-outlined text-[20px]">smart_display</span>
                     </a>
-                    <a aria-label="WhatsApp Direct Contact" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-secondary transition-colors border border-outline-variant/20" href="https://wa.me/966593673722" rel="noopener noreferrer" target="_blank">
+                    <a aria-label="WhatsApp Direct Contact" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-secondary transition-colors border border-outline-variant/20" href="<?= WHATSAPP_LINK ?>" rel="noopener noreferrer" target="_blank">
                         <i class="bi bi-whatsapp text-[18px]"></i>
                     </a>
                 </div>
@@ -36,6 +36,10 @@
                 <span class="font-label-badge text-label-badge text-on-surface uppercase tracking-wider font-semibold"><?= __t('footer.direct_contact_title') ?></span>
                 <div class="flex flex-col gap-1.5 font-body-sm text-body-sm text-on-surface-variant">
                     <a href="mailto:<?= __t('footer.direct_email') ?>" class="hover:text-primary transition-colors"><?= __t('footer.direct_email') ?></a>
+                    <a href="<?= WHATSAPP_LINK ?>" class="inline-flex items-center gap-1.5 hover:text-secondary transition-colors" rel="noopener noreferrer" target="_blank">
+                        <i class="bi bi-whatsapp text-[14px] text-secondary"></i>
+                        <span dir="ltr"><?= WHATSAPP_DISPLAY ?></span>
+                    </a>
                     <span><?= __t('footer.direct_location') ?></span>
                     <span class="text-secondary inline-flex items-center gap-1 font-label-code text-xs pt-1">
                         <span class="material-symbols-outlined text-[14px]">bolt</span>

@@ -44,6 +44,10 @@
                 <div class="pt-space-md">
                     <span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-wider block mb-space-xs font-semibold"><?= __t('contact.channels_title') ?></span>
                     <div class="flex flex-wrap items-center gap-space-sm">
+                        <a class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-body-sm border border-outline-variant/20 hover:border-secondary transition-colors" href="<?= WHATSAPP_LINK ?>?text=<?= rawurlencode(__t('contact.wa_prefill')) ?>" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-whatsapp text-[16px] text-secondary"></i>
+                            <span dir="ltr"><?= WHATSAPP_DISPLAY ?></span>
+                        </a>
                         <a class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-body-sm border border-outline-variant/20 hover:border-secondary transition-colors" href="https://github.com/fayezCoder" target="_blank" rel="noopener noreferrer">
                             <span class="material-symbols-outlined text-[18px] text-secondary">terminal</span>
                             <span dir="ltr">github.com/fayezCoder</span>
@@ -62,7 +66,10 @@
 
             <!-- Right Column: Interactive Intake Form (lg:col-span-7) -->
             <div class="lg:col-span-7 p-space-xl rounded-2xl bg-surface-container shadow-2xl border border-outline-variant/30">
-                <form class="flex flex-col gap-space-md" id="lead-form">
+                <form class="flex flex-col gap-space-md" id="lead-form" novalidate
+                      data-whatsapp="<?= WHATSAPP_NUMBER ?>"
+                      data-error-message="<?= htmlspecialchars(__t('contact.error_alert'), ENT_QUOTES) ?>"
+                      data-success-message="<?= htmlspecialchars(__t('contact.success_alert'), ENT_QUOTES) ?>">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                         <!-- Name Input -->
                         <div class="flex flex-col gap-1.5">
@@ -102,13 +109,13 @@
 
                     <!-- Submission Action Row -->
                     <div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-xs">
-                        <div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-badge">
-                            <span class="material-symbols-outlined text-[16px] text-secondary">lock</span>
+                        <div class="flex items-start gap-space-xs text-on-surface-variant font-label-code text-label-badge max-w-xs">
+                            <i class="bi bi-whatsapp text-[15px] text-secondary"></i>
                             <span><?= __t('contact.encryption_note') ?></span>
                         </div>
-                        <button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_20px_rgba(225,29,72,0.35)] disabled:opacity-60 cursor-pointer" id="submit-btn" type="submit">
-                            <span><?= __t('contact.btn_submit') ?></span>
-                            <span class="material-symbols-outlined text-[20px]">send</span>
+                        <button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_20px_rgba(225,29,72,0.35)] disabled:opacity-60 cursor-pointer" id="submit-btn" type="submit" data-idle-label="<?= htmlspecialchars(__t('contact.btn_submit'), ENT_QUOTES) ?>" data-sent-label="<?= htmlspecialchars(__t('contact.btn_sent'), ENT_QUOTES) ?>">
+                            <span data-btn-label><?= __t('contact.btn_submit') ?></span>
+                            <i class="bi bi-whatsapp text-[18px]"></i>
                         </button>
                     </div>
 

@@ -8,9 +8,9 @@
         <!-- Brand & Available Badge -->
         <div class="flex items-center gap-space-md shrink-0">
             <a href="#top" class="flex items-center gap-3 group">
-                <img alt="FayezCoder Modern Tech Logo" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="assets/img/showcase/logo.png" />
+                <img alt="<?= __t('nav.brand') ?> Logo" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" src="assets/img/showcase/logo.png" />
                 <div class="flex flex-col">
-                    <span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none font-bold">FayezCoder</span>
+                    <span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none font-bold"><?= __t('nav.brand') ?></span>
                     <span class="font-label-badge text-label-badge text-secondary font-semibold uppercase tracking-wider mt-1"><?= __t('nav.sub') ?></span>
                 </div>
             </a>
@@ -48,7 +48,7 @@
             </a>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high focus:outline-none" aria-label="Toggle Navigation">
+            <button id="mobile-menu-btn" type="button" class="lg:hidden p-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high focus:outline-none" aria-label="Toggle Navigation" aria-controls="mobile-nav-drawer" aria-expanded="false">
                 <span class="material-symbols-outlined text-[24px]">menu</span>
             </button>
         </div>

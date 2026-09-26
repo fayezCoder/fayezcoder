@@ -53,7 +53,7 @@
                 </div>
                 <div class="pt-space-lg flex items-center justify-between border-t border-surface-container-high/60 mt-space-md">
                     <span class="font-label-code text-label-code text-on-surface-variant"><?= __t('services.s1_footer') ?></span>
-                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#portfolio">
+                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#projects">
                         <span><?= __t('services.s1_action') ?></span>
                         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                     </a>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="pt-space-lg flex items-center justify-between border-t border-surface-container-high/60 mt-space-md">
                     <span class="font-label-code text-label-code text-on-surface-variant"><?= __t('services.s2_footer') ?></span>
-                    <a class="font-headline-sm text-headline-sm text-primary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#portfolio">
+                    <a class="font-headline-sm text-headline-sm text-primary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#projects">
                         <span><?= __t('services.s2_action') ?></span>
                         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                     </a>

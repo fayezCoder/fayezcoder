@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= __t('nav.brand') ?> | <?= __t('hero.role_title') ?> - <?= __t('hero.title_line1') ?> <?= __t('hero.title_gradient') ?></title>
     <meta name="description" content="<?= htmlspecialchars(strip_tags(__t('hero.bio'))) ?>" />
-    <meta name="author" content="Fayez Al-Mutairi" />
+    <meta name="author" content="Fayez Almutairi" />
     <link rel="canonical" href="<?= APP_URL ?>/" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 

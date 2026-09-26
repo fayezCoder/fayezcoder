@@ -1,66 +1,171 @@
+/**
+ * Fayez Almutairi Portfolio - Obsidian Cyberpunk Vanguard
+ * Interactive Behaviour:
+ *   1. Sticky header elevation on scroll
+ *   2. Mobile navigation drawer
+ *   3. Dynamic portfolio category filtering
+ *   4. Contact intake form -> direct WhatsApp hand-off (no API, no database)
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navbar Scroll effect
-    const navbar = document.querySelector('.modern-nav');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 40) {
-                navbar.classList.add('scrolled');
+    /* ------------------------------------------------------------------
+     * 1. Header elevation on scroll
+     * ------------------------------------------------------------------ */
+    const header = document.querySelector('body > header');
+    if (header) {
+        const syncHeader = () => header.classList.toggle('shadow-[0_10px_30px_rgba(0,0,0,0.55)]', window.scrollY > 24);
+        syncHeader();
+        window.addEventListener('scroll', syncHeader, { passive: true });
+    }
+
+    /* ------------------------------------------------------------------
+     * 2. Mobile navigation drawer
+     * ------------------------------------------------------------------ */
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if (menuBtn && drawer) {
+        const icon = menuBtn.querySelector('.material-symbols-outlined');
+        const closeDrawer = () => {
+            drawer.classList.add('hidden');
+            if (icon) icon.textContent = 'menu';
+            menuBtn.setAttribute('aria-expanded', 'false');
+        };
+
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.addEventListener('click', () => {
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                if (icon) icon.textContent = 'close';
+                menuBtn.setAttribute('aria-expanded', 'true');
             } else {
-                navbar.classList.remove('scrolled');
+                closeDrawer();
             }
+        });
+
+        // Collapse after choosing a destination
+        drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
+
+        // Reset state when resizing back to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) closeDrawer();
         });
     }
 
-    // 2. Interactive Contact Form with WhatsApp Integration + Database API
-    const contactForm = document.getElementById('modernContactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    /* ------------------------------------------------------------------
+     * 3. Dynamic portfolio category filtering
+     * ------------------------------------------------------------------ */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('#portfolio-grid .project-card');
+    if (filterButtons.length && projectCards.length) {
+        const idleClasses = ['text-on-surface-variant', 'hover:text-on-surface'];
 
-            const name = document.getElementById('cf-name').value.trim();
-            const email = document.getElementById('cf-email').value.trim();
-            const phone = document.getElementById('cf-phone').value.trim();
-            const message = document.getElementById('cf-message').value.trim();
-            const submitBtn = document.getElementById('cf-submit-btn');
-            const alertBox = document.getElementById('cf-alert');
+        const applyFilter = (filter) => {
+            projectCards.forEach((card) => {
+                const categories = (card.dataset.category || '').trim().split(/\s+/);
+                const matches = filter === 'all' || categories.includes(filter);
+                card.classList.toggle('hidden', !matches);
+            });
+        };
 
-            if (!name || !email || !message) {
-                alertBox.className = 'alert alert-danger mt-3';
-                alertBox.textContent = 'يرجى ملء جميع الحقول المطلوبة / Please fill all required fields.';
-                alertBox.classList.remove('d-none');
+        filterButtons.forEach((btn) => {
+            const isActive = btn.dataset.filter === 'all';
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+            btn.addEventListener('click', () => {
+                filterButtons.forEach((other) => {
+                    const isTarget = other === btn;
+                    other.classList.toggle('bg-primary-container', isTarget);
+                    other.classList.toggle('text-on-primary-container', isTarget);
+                    other.classList.toggle('shadow-sm', isTarget);
+                    idleClasses.forEach((cls) => other.classList.toggle(cls, !isTarget));
+                    other.setAttribute('aria-pressed', isTarget ? 'true' : 'false');
+                });
+                applyFilter(btn.dataset.filter || 'all');
+            });
+        });
+
+        applyFilter('all');
+    }
+
+    /* ------------------------------------------------------------------
+     * 4. Contact form -> WhatsApp direct hand-off
+     * ------------------------------------------------------------------ */
+    const leadForm = document.getElementById('lead-form');
+    if (leadForm) {
+        const feedback = document.getElementById('form-feedback');
+        const submitBtn = document.getElementById('submit-btn');
+        const isArabic = (document.documentElement.lang || 'ar').toLowerCase().indexOf('ar') === 0;
+
+        const fieldValue = (id) => {
+            const field = document.getElementById(id);
+            return field ? field.value.trim() : '';
+        };
+
+        const showFeedback = (message, isError) => {
+            if (!feedback) return;
+            feedback.textContent = message;
+            feedback.className = 'p-space-md rounded-lg font-body-sm text-body-sm border ' +
+                (isError
+                    ? 'bg-error-container/30 text-on-error-container border-error/40'
+                    : 'bg-secondary-container/20 text-secondary border-secondary/40');
+        };
+
+        leadForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = fieldValue('lead-name');
+            const email = fieldValue('lead-email');
+            const phone = fieldValue('lead-phone');
+            const message = fieldValue('lead-message');
+            const categorySelect = document.getElementById('lead-category');
+            const category = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text.trim() : '';
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+            if (!name || !email || !phone || !message || !emailPattern.test(email)) {
+                showFeedback(leadForm.dataset.errorMessage || 'Please fill in all required fields accurately.', true);
                 return;
             }
 
-            const originalBtnText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> جاري المعالجة...';
+            const whatsappNumber = leadForm.dataset.whatsapp || '966555861780';
+            const greeting = isArabic ? 'السلام عليكم، فايز' : 'Hello Fayez';
+            const labels = isArabic
+                ? { name: 'الاسم', email: 'البريد الإلكتروني', phone: 'رقم التواصل', category: 'مجال المشروع', message: 'تفاصيل المشروع' }
+                : { name: 'Name', email: 'Email', phone: 'Phone', category: 'Project Focus', message: 'Project Details' };
 
-            try {
-                // Async save to PHP / MySQL backend
-                await fetch('api/contact.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, phone, message, lang: document.documentElement.lang || 'ar' })
-                });
-            } catch (err) {
-                console.warn('API error (saved locally or offline):', err);
+            const body = [
+                greeting,
+                '',
+                '*' + labels.name + ':* ' + name,
+                '*' + labels.email + ':* ' + email,
+                '*' + labels.phone + ':* ' + phone,
+                '*' + labels.category + ':* ' + category,
+                '',
+                '*' + labels.message + ':*',
+                message
+            ].join('\n');
+
+            const whatsappUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(body);
+
+            showFeedback(leadForm.dataset.successMessage || 'Opening WhatsApp with your request...', false);
+
+            const label = submitBtn ? submitBtn.querySelector('[data-btn-label]') : null;
+            if (submitBtn) {
+                if (label) label.textContent = submitBtn.dataset.sentLabel || label.textContent;
+                submitBtn.disabled = true;
             }
 
-            // WhatsApp Direct Action
-            const recipientPhone = "966593673722";
-            const greeting = document.documentElement.lang === 'ar' ? 'السلام عليكم أخي فايز' : 'Hello Fayez';
-            const whatsappText = `${greeting},%0A%0A📌 *الاسم / Name:* ${encodeURIComponent(name)}%0A📧 *البريد / Email:* ${encodeURIComponent(email)}%0A📱 *الهاتف / Phone:* ${encodeURIComponent(phone)}%0A📝 *التفاصيل / Details:*%0A${encodeURIComponent(message)}`;
+            const opened = window.open(whatsappUrl, '_blank', 'noopener');
+            if (!opened) {
+                // Popup blocked fallback: continue in the current tab
+                window.location.href = whatsappUrl;
+            }
 
-            alertBox.className = 'alert alert-success mt-3';
-            alertBox.textContent = 'تم إرسال طلبك! جاري فتح محادثة واتساب المباشرة...';
-            alertBox.classList.remove('d-none');
-
-            setTimeout(() => {
-                window.open(`https://wa.me/${recipientPhone}?text=${whatsappText}`, '_blank');
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                contactForm.reset();
-            }, 1000);
+            window.setTimeout(() => {
+                leadForm.reset();
+                if (submitBtn) {
+                    if (label) label.textContent = submitBtn.dataset.idleLabel || label.textContent;
+                    submitBtn.disabled = false;
+                }
+            }, 1200);
         });
     }
 });

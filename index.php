@@ -1,7 +1,7 @@
 <?php
 /**
  * Modern Tech Portfolio Entry Point
- * Fayez Al-Mutairi (fayezcoder.com)
+ * Fayez Almutairi (fayezcoder.com)
  * Architecture: Obsidian Cyberpunk Vanguard
  */
 
