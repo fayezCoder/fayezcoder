@@ -51,7 +51,7 @@ return [
 
         'title_line2' => 'Experiences',
 
-        'bio' => 'Hi, I\'m <strong class="text-on-surface">Fayez AL-Mutairi</strong> — Full-Stack Mobile & Web Engineer specializing in Flutter, Android enterprise systems, and reactive cloud architectures. Converting mission-critical requirements into high-velocity digital realities.',
+        'bio' => 'Hi, I\'m <strong class="text-on-surface">Fayez AL-Mutairi</strong> — Full-Stack Mobile & Web Engineer specializing in Flutter, Android enterprise systems, and Laravel cloud web applications. Converting mission-critical requirements into high-velocity digital realities.',
 
         'cta_featured' => 'Explore Featured Work',
 
@@ -157,13 +157,13 @@ return [
         's2_action' => 'View Builds',
 
 
-        's3_badge' => 'Automation & Extensions',
+        's3_badge' => 'Automation & Custom Web',
 
-        's3_title' => 'Web Scripting & Plugins',
+        's3_title' => 'Web Systems & Automation',
 
-        's3_desc' => 'Bespoke automation tools, custom WordPress plugins, REST API integrations, and specialized utility scripts built to solve unique enterprise operational bottlenecks.',
+        's3_desc' => 'Bespoke automation tools, custom Laravel web applications, REST API integrations, and specialized utility scripts built to solve unique enterprise operational bottlenecks.',
 
-        's3_f1' => 'Custom WordPress plugin architecture',
+        's3_f1' => 'Laravel web application architecture',
 
         's3_f2' => 'Data parsing, ZIP backups & export pipelines',
 
@@ -235,9 +235,9 @@ return [
 
         'm4_tag' => 'Milestone 04 • Evolution',
 
-        'm4_title' => 'Custom Web Tools & Plugins',
+        'm4_title' => 'Custom Web Apps & Laravel',
 
-        'm4_desc' => 'Extending capabilities into full-stack web platforms, community technician hubs (aeroFix), and custom WordPress plugin architectures for global enterprise clients.',
+        'm4_desc' => 'Extending capabilities into full-stack web platforms, community technician hubs (aeroFix), and custom enterprise Laravel application architectures.',
 
     ],
 
@@ -256,7 +256,7 @@ return [
 
         'heading' => 'Let\'s Build Something Exceptional Together',
 
-        'desc' => 'Whether you need a full native mobile app built from scratch, offline aviation workflows, a high-converting web platform, or specialized WordPress tools — send your specifications straight to my WhatsApp.',
+        'desc' => 'Whether you need a full native mobile app built from scratch, offline aviation workflows, a high-converting Laravel web platform, or specialized web tools — send your specifications straight to my WhatsApp.',
 
         'location_title' => 'Riyadh, Saudi Arabia',
 
@@ -286,9 +286,9 @@ return [
 
         'cat_opt_mobile' => 'Mobile App (Flutter / Android)',
 
-        'cat_opt_web' => 'Full-Stack Web (PHP / MySQL)',
+        'cat_opt_web' => 'Full-Stack Web (Laravel / PHP / MySQL)',
 
-        'cat_opt_plugin' => 'Custom Tool / WordPress Plugin',
+        'cat_opt_plugin' => 'Custom Web Systems / Automation (Laravel)',
 
         'cat_opt_consult' => 'Architecture Consultation',
 
@@ -311,7 +311,7 @@ return [
     ],
 
     'footer' => [
-        'brand_desc' => 'Senior Mobile Application Architect & Full-Stack Web Engineer. Specializing in high-performance digital products, Flutter, Next.js, and cloud ecosystems for enterprise scale.',
+        'brand_desc' => 'Senior Mobile Application Architect & Full-Stack Web Engineer. Specializing in high-performance digital products, Flutter, Laravel Framework, and cloud ecosystems for enterprise scale.',
 
         'direct_contact_title' => 'Direct Contact',
 
@@ -337,11 +337,11 @@ return [
     'pages' => [
         'home' => [
             'title' => 'Fayez Almutairi | Mobile & Web Engineering Architect',
-            'desc' => 'Senior Mobile Application Architect & Full-Stack Web Engineer specializing in Flutter, Android enterprise systems, and high-performance web platforms.',
+            'desc' => 'Senior Mobile Application Architect & Full-Stack Web Engineer specializing in Flutter, Android enterprise systems, Laravel Framework, and high-performance web platforms.',
         ],
         'services' => [
             'title' => 'Services & Engineering Architecture | Fayez Almutairi',
-            'desc' => 'High-performance mobile app development (Flutter / Android), reactive web architectures, and mission-critical enterprise systems.',
+            'desc' => 'High-performance mobile app development (Flutter / Android), Laravel web architectures, and mission-critical enterprise systems.',
         ],
         'projects' => [
             'title' => 'Featured Projects & Aviation Platforms | Fayez Almutairi',
@@ -353,7 +353,7 @@ return [
         ],
         'skills' => [
             'title' => 'Technical Skills & Tooling | Fayez Almutairi',
-            'desc' => 'Core technologies: Flutter, Dart, Android SDK, PHP, Tailwind CSS, SQLite, Firebase, and cloud-native systems.',
+            'desc' => 'Core technologies: Flutter, Dart, Laravel, PHP, Android SDK, Tailwind CSS, SQLite, Firebase, and cloud-native systems.',
         ],
         'contact' => [
             'title' => 'Contact & Direct WhatsApp Inquiry | Fayez Almutairi',

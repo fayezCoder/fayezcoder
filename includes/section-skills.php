@@ -80,11 +80,11 @@
                 <span class="font-label-code text-label-badge text-on-surface-variant">Relational Data</span>
             </div>
 
-            <!-- Tech 10: WordPress Plugins -->
+            <!-- Tech 10: Laravel Framework -->
             <div class="p-space-md rounded-xl bg-surface-container flex flex-col items-center gap-space-xs text-center hover:bg-surface-container-high border border-outline-variant/20 hover:border-primary/50 transition-all group">
-                <span class="material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform">extension</span>
-                <span class="font-headline-sm text-headline-sm text-on-surface font-semibold">WordPress Plugins</span>
-                <span class="font-label-code text-label-badge text-on-surface-variant">Custom Hooks</span>
+                <span class="material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform">view_quilt</span>
+                <span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Laravel</span>
+                <span class="font-label-code text-label-badge text-on-surface-variant">Web & APIs</span>
             </div>
 
             <!-- Tech 11: Git & GitHub -->
