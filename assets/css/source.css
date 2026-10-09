@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior-y: none; }
+    html[dir="rtl"] body { font-family: 'Tajawal', 'Inter', sans-serif; }
+    main > :first-child { margin-top: 0; }
+    main > :last-child { margin-bottom: 0; }
+    section[data-section] { scroll-margin-top: 5.5rem; }
+    :focus-visible { outline: 2px solid #4cd7f6; outline-offset: 4px; }
+    [aria-invalid="true"] { border-color: #ffb4ab; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0a0e17; }
+    ::-webkit-scrollbar-thumb { background: #31353f; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4a4455; }
+}
+
+@layer components {
+    /* Show the existing brand icon without its surrounding transparent canvas. */
+    .brand-mark {
+        display: block;
+        width: 36px;
+        height: 36px;
+        background: url('../img/showcase/logo.png') -1px -64px / 164px 164px no-repeat;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

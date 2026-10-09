@@ -9,7 +9,7 @@
             <!-- Col 1: Brand & Bio (md:col-span-5) -->
             <div class="md:col-span-5 flex flex-col gap-space-md">
                 <div class="flex items-center gap-space-sm">
-                    <img alt="<?= __t('nav.brand') ?> Logo" class="h-8 w-auto object-contain" src="assets/img/showcase/logo.png" />
+                    <span class="brand-mark shrink-0" aria-hidden="true"></span>
                     <span class="font-headline-md text-headline-md text-on-surface font-bold"><?= __t('nav.brand') ?></span>
                 </div>
                 <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">
@@ -67,12 +67,12 @@
         <!-- Bottom Copyright -->
         <div class="pt-space-2xl mt-space-2xl border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-md font-label-code text-label-badge text-on-surface-variant">
             <span><?= __t('footer.rights') ?></span>
-            <span><?= __t('footer.version') ?></span>
+            <span>v<?= ASSET_VERSION ?> • <?= __t('footer.version') ?></span>
         </div>
     </div>
 </footer>
 
 <!-- Interactive Scripts -->
-<script src="assets/js/modern.js"></script>
+<script src="<?= fc_asset('assets/js/modern.js') ?>"></script>
 </body>
 </html>

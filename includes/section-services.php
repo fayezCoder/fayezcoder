@@ -12,10 +12,10 @@
                     <span class="material-symbols-outlined text-[16px]">tune</span>
                     <span><?= __t('services.tag') ?></span>
                 </div>
-                <h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold"><?= __t('services.heading') ?></h2>
+                <h1 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold"><?= __t('services.heading') ?></h1>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><?= __t('services.desc') ?></p>
             </div>
-            <a class="inline-flex items-center gap-space-xs font-headline-sm text-headline-sm text-secondary hover:text-on-surface transition-colors font-semibold shrink-0" href="#contact">
+            <a class="inline-flex items-center gap-space-xs font-headline-sm text-headline-sm text-secondary hover:text-on-surface transition-colors font-semibold shrink-0" href="<?= fc_url('contact') ?>">
                 <span><?= __t('services.inquiry_link') ?></span>
                 <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
             </a>
@@ -26,7 +26,7 @@
             <!-- Service 1: Mobile App Dev -->
             <div class="p-space-lg rounded-2xl bg-surface-container flex flex-col justify-between transition-all duration-300 hover:bg-surface-container-high group shadow-lg border border-outline-variant/20 hover:border-primary-container/40">
                 <div class="flex flex-col gap-space-md">
-                    <div class="w-14 h-14 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary shadow-md group-hover:scale-105 transition-transform">
+                    <div class="w-14 h-14 rounded-xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container shadow-md group-hover:scale-105 transition-transform">
                         <span class="material-symbols-outlined text-[32px]">smartphone</span>
                     </div>
                     <div class="flex flex-col gap-space-xs">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="pt-space-lg flex items-center justify-between border-t border-surface-container-high/60 mt-space-md">
                     <span class="font-label-code text-label-code text-on-surface-variant"><?= __t('services.s1_footer') ?></span>
-                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#projects">
+                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="<?= fc_url('projects') ?>">
                         <span><?= __t('services.s1_action') ?></span>
                         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                     </a>
@@ -63,7 +63,7 @@
             <!-- Service 2: Responsive & Web Systems -->
             <div class="p-space-lg rounded-2xl bg-surface-container flex flex-col justify-between transition-all duration-300 hover:bg-surface-container-high group shadow-lg border border-outline-variant/20 hover:border-primary/40">
                 <div class="flex flex-col gap-space-md">
-                    <div class="w-14 h-14 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-md group-hover:scale-105 transition-transform">
+                    <div class="w-14 h-14 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container shadow-md group-hover:scale-105 transition-transform">
                         <span class="material-symbols-outlined text-[32px]">laptop_mac</span>
                     </div>
                     <div class="flex flex-col gap-space-xs">
@@ -90,7 +90,7 @@
                 </div>
                 <div class="pt-space-lg flex items-center justify-between border-t border-surface-container-high/60 mt-space-md">
                     <span class="font-label-code text-label-code text-on-surface-variant"><?= __t('services.s2_footer') ?></span>
-                    <a class="font-headline-sm text-headline-sm text-primary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#projects">
+                    <a class="font-headline-sm text-headline-sm text-primary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="<?= fc_url('projects') ?>">
                         <span><?= __t('services.s2_action') ?></span>
                         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                     </a>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="pt-space-lg flex items-center justify-between border-t border-surface-container-high/60 mt-space-md">
                     <span class="font-label-code text-label-code text-on-surface-variant"><?= __t('services.s3_footer') ?></span>
-                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="#contact">
+                    <a class="font-headline-sm text-headline-sm text-secondary group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold" href="<?= fc_url('contact') ?>">
                         <span><?= __t('services.s3_action') ?></span>
                         <span class="material-symbols-outlined text-[16px]">chevron_right</span>
                     </a>

@@ -1,14 +1,112 @@
-RewriteEngine On
+# ===========================================================================
+# fayezcoder.com — production .htaccess
+# Fayez Almutairi portfolio · front-controller clean URLs (Apache / LiteSpeed)
+#
+# Design notes (safe for Hostinger shared hosting):
+#   * Every rule is wrapped in <IfModule> or uses standard 2.4 syntax, so a
+#     missing module degrades gracefully instead of returning 500.
+#   * Real files/directories (assets, robots.txt, sitemap.xml) always bypass
+#     the router — the rewrite can never "block" a page or a static file.
+#   * Unknown paths fall through to index.php, which renders the bilingual
+#     custom 404 (HTTP 404) or the clean URL page (HTTP 200).
+# ===========================================================================
 
-# 1. Force HTTPS (Disabled for localhost)
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# No directory listings, index.php is the directory index.
+Options -Indexes
+DirectoryIndex index.php
 
-# 2. Redirect index.html to ./ (Canonicalization)
-RewriteCond %{THE_REQUEST} /index\.html [NC]
-RewriteRule ^index\.html$ ./ [L,R=301]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
 
-# 3. Optional: Remove .html extension from other pages if they existed (not needed for SPA/single page but good practice)
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^([^\.]+)$ $1.html [NC,L]
+    # --- 1. Canonical host: www -> apex, always on https -------------------
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+    # Force https — skipped for local development hosts.
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP_HOST} !^localhost(:[0-9]+)?$ [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:[0-9]+)?$ [NC]
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+    # --- 2. Legacy entry files -> clean URLs (THE_REQUEST guards keep the
+    #        internal DirectoryIndex / front-controller rewrites from looping) -
+    RewriteCond %{THE_REQUEST} \s/+index\.php[\s?#] [NC]
+    RewriteRule ^index\.php$ / [R=301,L]
+
+    RewriteCond %{THE_REQUEST} \s/+index\.html[\s?#] [NC]
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # --- 3. Never expose server internals (403, before the -f pass-through) --
+    RewriteRule ^(config|includes|lang|tests|scripts|node_modules|dist)(/|$) - [F,L]
+    RewriteRule ^\.(git|agents|codex)(/|$) - [F,L]
+    RewriteRule ^(package(-lock)?\.json|tailwind\.config\.cjs|assets/css/source\.css)$ - [F,L]
+
+    # --- 4. Existing files & directories are served untouched ---------------
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # --- 5. Everything else -> front controller (clean URLs + custom 404) ----
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Never serve backups / VCS / editor leftovers (403)
+# ---------------------------------------------------------------------------
+<FilesMatch "\.(bak|old|orig|save|swp|sql|log|lock|md|markdown|yml|yaml|tar|gz|zip|rar|sh|env|ini|lock)$|~$|^\.DS_Store$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ---------------------------------------------------------------------------
+# Security headers (no body/behaviour changes — pure response headers)
+# ---------------------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Strict-Transport-Security "max-age=31536000" env=HTTPS
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Compression. AddOutputFilterByType belongs to mod_filter while the DEFLATE
+# filter itself comes from mod_deflate, so both modules are required — nested
+# <IfModule> guards make this a no-op (never a 500) when either is missing.
+# Both spellings of the JS media type are listed (differs between mime.types).
+# ---------------------------------------------------------------------------
+<IfModule mod_filter.c>
+    <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+        AddOutputFilterByType DEFLATE application/javascript text/javascript
+        AddOutputFilterByType DEFLATE application/json application/xml
+        AddOutputFilterByType DEFLATE image/svg+xml
+    </IfModule>
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Browser caching — assets are cache-busted with ?v= (fc_asset), HTML is not
+# stored by shared-hosting caches (safe: no sessions/cookies are used).
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 day"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

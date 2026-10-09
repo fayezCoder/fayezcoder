@@ -15,6 +15,8 @@ return [
 
 
     'nav' => [
+        'status_short' => 'Available for projects',
+        'menu_label' => 'Main navigation',
         'brand' => 'Fayez Almutairi',
 
         'sub' => 'Mobile & Web Dev',
@@ -249,6 +251,7 @@ return [
     ],
 
     'contact' => [
+        'no_js' => 'To send your request, enable JavaScript or open WhatsApp directly.',
         'tag' => 'Direct Inquiry',
 
         'heading' => 'Let\'s Build Something Exceptional Together',
@@ -293,7 +296,7 @@ return [
 
         'form_msg_ph' => 'Provide a summary of your requirements, current pain points, and target launch date...',
 
-        'encryption_note' => 'Submitting opens a direct WhatsApp chat with Fayez — nothing is stored on a server.',
+        'encryption_note' => 'Submitting opens a direct WhatsApp chat with Fayez — the form is not saved on this website.',
 
         'btn_submit' => 'Send via WhatsApp',
 
@@ -301,7 +304,7 @@ return [
 
         'btn_sent' => 'WhatsApp Opened',
 
-        'success_alert' => 'Thanks! WhatsApp is opening in a new tab with your request pre-filled.',
+        'success_alert' => 'Thanks! WhatsApp is opening in this tab with your request pre-filled.',
 
         'error_alert' => 'Please fill in all required fields accurately.',
 
@@ -312,7 +315,7 @@ return [
 
         'direct_contact_title' => 'Direct Contact',
 
-        'direct_email' => 'contact@fayezcoder.com',
+        'direct_email' => 'info@fayezcoder.com',
 
         'direct_location' => 'Riyadh, Kingdom of Saudi Arabia',
 
@@ -320,14 +323,49 @@ return [
 
         'license_title' => 'Official Accreditation',
 
-        'license_mhrsd' => 'موثق من وزارة الموارد البشرية والتنمية الاجتماعية',
+        'license_mhrsd' => 'Accredited by the Ministry of Human Resources and Social Development',
 
         'license_number' => 'FL-489921076',
 
         'license_type' => 'Saudi Freelance License',
 
         'rights' => 'All rights reserved © Fayez Almutairi ' . date('Y'),
-        'version' => 'v3.4.0 • PRODUCTION',
+        'version' => 'PRODUCTION',
 
-    ]
+    ],
+
+    'pages' => [
+        'home' => [
+            'title' => 'Fayez Almutairi | Mobile & Web Engineering Architect',
+            'desc' => 'Senior Mobile Application Architect & Full-Stack Web Engineer specializing in Flutter, Android enterprise systems, and high-performance web platforms.',
+        ],
+        'services' => [
+            'title' => 'Services & Engineering Architecture | Fayez Almutairi',
+            'desc' => 'High-performance mobile app development (Flutter / Android), reactive web architectures, and mission-critical enterprise systems.',
+        ],
+        'projects' => [
+            'title' => 'Featured Projects & Aviation Platforms | Fayez Almutairi',
+            'desc' => 'Portfolio of production mobile apps, aviation mission hubs (AeroSupervisor, C130), and custom full-stack solutions.',
+        ],
+        'about' => [
+            'title' => 'About Fayez Almutairi | Background & Accreditation',
+            'desc' => 'Tuwaiq Academy alumnus, MHRSD-accredited engineer, and Google Play Console publisher with 3+ years of production experience.',
+        ],
+        'skills' => [
+            'title' => 'Technical Skills & Tooling | Fayez Almutairi',
+            'desc' => 'Core technologies: Flutter, Dart, Android SDK, PHP, Tailwind CSS, SQLite, Firebase, and cloud-native systems.',
+        ],
+        'contact' => [
+            'title' => 'Contact & Direct WhatsApp Inquiry | Fayez Almutairi',
+            'desc' => 'Get in touch directly with Fayez Almutairi via WhatsApp (+966 55 586 1780) for custom project consultations and development contracts.',
+        ],
+    ],
+    'notfound' => [
+        'tag' => '404 Error',
+        'heading' => 'Mission Route Not Found',
+        'desc' => 'The link you followed has expired or the requested resource does not exist in our system registry.',
+        'home' => 'Return Home',
+        'contact' => 'Contact Me',
+        'available' => 'Available Pages:',
+    ],
 ];

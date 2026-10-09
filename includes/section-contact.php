@@ -12,7 +12,7 @@
                     <span class="material-symbols-outlined text-[16px]">mail</span>
                     <span><?= __t('contact.tag') ?></span>
                 </div>
-                <h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold leading-tight"><?= __t('contact.heading') ?></h2>
+                <h1 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold leading-tight"><?= __t('contact.heading') ?></h1>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                     <?= __t('contact.desc') ?>
                 </p>
@@ -65,21 +65,22 @@
             </div>
 
             <!-- Right Column: Interactive Intake Form (lg:col-span-7) -->
-            <div class="lg:col-span-7 p-space-xl rounded-2xl bg-surface-container shadow-2xl border border-outline-variant/30">
-                <form class="flex flex-col gap-space-md" id="lead-form" novalidate
+            <div class="lg:col-span-7 p-space-md sm:p-space-xl rounded-2xl bg-surface-container shadow-2xl border border-outline-variant/30">
+                <form class="flex flex-col gap-space-md" id="lead-form" method="post" action="<?= fc_url('contact') ?>" novalidate
                       data-whatsapp="<?= WHATSAPP_NUMBER ?>"
                       data-error-message="<?= htmlspecialchars(__t('contact.error_alert'), ENT_QUOTES) ?>"
                       data-success-message="<?= htmlspecialchars(__t('contact.success_alert'), ENT_QUOTES) ?>">
+                    <fieldset id="lead-fields" disabled class="min-w-0 flex flex-col gap-space-md">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
                         <!-- Name Input -->
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-code text-label-badge text-on-surface uppercase tracking-wider font-semibold" for="lead-name"><?= __t('contact.form_name') ?></label>
-                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline-variant border border-outline-variant/30 focus:outline-none focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-name" name="name" placeholder="<?= __t('contact.form_name_ph') ?>" required type="text" />
+                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline border border-outline-variant/30 focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-name" name="name" autocomplete="name" maxlength="100" placeholder="<?= __t('contact.form_name_ph') ?>" required type="text" />
                         </div>
                         <!-- Email Input -->
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-code text-label-badge text-on-surface uppercase tracking-wider font-semibold" for="lead-email"><?= __t('contact.form_email') ?></label>
-                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline-variant border border-outline-variant/30 focus:outline-none focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-email" name="email" placeholder="<?= __t('contact.form_email_ph') ?>" required type="email" />
+                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline border border-outline-variant/30 focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-email" name="email" autocomplete="email" dir="ltr" maxlength="254" placeholder="<?= __t('contact.form_email_ph') ?>" required type="email" />
                         </div>
                     </div>
 
@@ -87,12 +88,12 @@
                         <!-- Phone Input -->
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-code text-label-badge text-on-surface uppercase tracking-wider font-semibold" for="lead-phone"><?= __t('contact.form_phone') ?></label>
-                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline-variant border border-outline-variant/30 focus:outline-none focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-phone" name="phone" placeholder="<?= __t('contact.form_phone_ph') ?>" required type="tel" />
+                            <input class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline border border-outline-variant/30 focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-phone" name="phone" autocomplete="tel" dir="ltr" maxlength="30" placeholder="<?= __t('contact.form_phone_ph') ?>" required type="tel" />
                         </div>
                         <!-- Project Category Select -->
                         <div class="flex flex-col gap-1.5">
                             <label class="font-label-code text-label-badge text-on-surface uppercase tracking-wider font-semibold" for="lead-category"><?= __t('contact.form_cat') ?></label>
-                            <select class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-outline-variant/30 focus:outline-none focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-category" name="category">
+                            <select class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md border border-outline-variant/30 focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-category" name="category">
                                 <option value="mobile"><?= __t('contact.cat_opt_mobile') ?></option>
                                 <option value="web"><?= __t('contact.cat_opt_web') ?></option>
                                 <option value="plugin"><?= __t('contact.cat_opt_plugin') ?></option>
@@ -104,7 +105,7 @@
                     <!-- Message Textarea -->
                     <div class="flex flex-col gap-1.5">
                         <label class="font-label-code text-label-badge text-on-surface uppercase tracking-wider font-semibold" for="lead-message"><?= __t('contact.form_msg') ?></label>
-                        <textarea class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline-variant border border-outline-variant/30 focus:outline-none focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-message" name="message" placeholder="<?= __t('contact.form_msg_ph') ?>" required rows="4"></textarea>
+                        <textarea class="w-full px-space-md py-3 rounded-lg bg-surface-container-low text-on-surface font-body-md placeholder:text-outline border border-outline-variant/30 focus:border-primary focus:bg-surface-container-highest transition-colors" id="lead-message" name="message" placeholder="<?= __t('contact.form_msg_ph') ?>" required rows="4" maxlength="3000"></textarea>
                     </div>
 
                     <!-- Submission Action Row -->
@@ -113,14 +114,16 @@
                             <i class="bi bi-whatsapp text-[15px] text-secondary"></i>
                             <span><?= __t('contact.encryption_note') ?></span>
                         </div>
-                        <button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_20px_rgba(225,29,72,0.35)] disabled:opacity-60 cursor-pointer" id="submit-btn" type="submit" data-idle-label="<?= htmlspecialchars(__t('contact.btn_submit'), ENT_QUOTES) ?>" data-sent-label="<?= htmlspecialchars(__t('contact.btn_sent'), ENT_QUOTES) ?>">
+                        <button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded-xl bg-tertiary-container text-on-tertiary-container hover:bg-tertiary hover:text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_20px_rgba(225,29,72,0.35)] disabled:opacity-60 cursor-pointer" id="submit-btn" type="submit">
                             <span data-btn-label><?= __t('contact.btn_submit') ?></span>
                             <i class="bi bi-whatsapp text-[18px]"></i>
                         </button>
                     </div>
 
                     <!-- Dynamic Form Feedback Alert -->
-                    <div class="hidden p-space-md rounded-lg font-body-sm text-body-sm" id="form-feedback"></div>
+                    <div class="hidden p-space-md rounded-lg font-body-sm text-body-sm" id="form-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+                    </fieldset>
+                    <noscript><p class="text-body-sm text-on-surface-variant"><?= __t('contact.no_js') ?> <a class="underline text-secondary" href="<?= WHATSAPP_LINK ?>">WhatsApp</a></p></noscript>
                 </form>
             </div>
         </div>

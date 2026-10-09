@@ -214,5 +214,40 @@ return [
             'en' => 'aerofix.fayezcoder.com'
         ],
         'accent' => 'secondary'
+    ],
+    'employee_manager' => [
+        'id' => 'employee_manager',
+        'title' => [
+            'ar' => 'نظام إدارة الموظفين والحضور',
+            'en' => 'Employee Attendance Management'
+        ],
+        'category' => 'web',
+        'category_badge' => [
+            'ar' => 'نظام إداري كامل (Laravel)',
+            'en' => 'Enterprise Web App (Laravel)'
+        ],
+        'client' => [
+            'ar' => 'نموذج تجريبي للعملاء',
+            'en' => 'Demo Client System'
+        ],
+        'meta_pill' => [
+            'icon' => 'badge',
+            'text' => [
+                'ar' => 'لوحة تحكم وتقارير',
+                'en' => 'Dashboard & Audit'
+            ]
+        ],
+        'image' => 'assets/img/showcase/aerofix_ui.png',
+        'summary' => [
+            'ar' => 'نظام إداري متكامل لإدارة الموظفين والورديات وسجلات الحضور والإنصراف بنقرة زر مع حساب ساعات العمل وتجاوز منتصف الليل، وتصدير التقارير وسجل التدقيق الشامل (Audit Log).',
+            'en' => 'Comprehensive employee management system for attendance tracking, overnight shifts calculation, department roles, printable CSV reports, and full audit logs.'
+        ],
+        'tech_stack' => ['Laravel 12', 'Blade', 'MySQL', 'Tailwind'],
+        'live_url' => 'https://demo.fayezcoder.com',
+        'extra_meta' => [
+            'ar' => 'demo.fayezcoder.com',
+            'en' => 'demo.fayezcoder.com'
+        ],
+        'accent' => 'primary'
     ]
 ];

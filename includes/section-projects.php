@@ -12,7 +12,7 @@
                     <span class="material-symbols-outlined text-[16px]">terminal</span>
                     <span><?= __t('portfolio.tag') ?></span>
                 </div>
-                <h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold mt-space-xs"><?= __t('portfolio.heading') ?></h2>
+                <h1 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold mt-space-xs"><?= __t('portfolio.heading') ?></h1>
                 <p class="font-body-md text-body-md text-on-surface-variant mt-1"><?= __t('portfolio.desc') ?></p>
             </div>
 
@@ -50,7 +50,7 @@
                     <!-- Upper Viewport / Device frame preview -->
                     <div class="relative w-full h-56 bg-surface-container-high overflow-hidden flex items-center justify-center p-space-md">
                         <div class="absolute inset-0 bg-gradient-to-tr from-surface-dim/90 via-surface-container-highest to-<?= $accent ?>/20"></div>
-                        <img class="relative z-10 w-full h-full object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-500" src="<?= htmlspecialchars($proj['image']) ?>" alt="<?= htmlspecialchars($title) ?>" loading="lazy" />
+                        <img class="relative z-10 w-full h-full object-cover rounded-lg shadow-lg group-hover:scale-105 transition-transform duration-500" src="<?= htmlspecialchars(fc_asset($proj['image']), ENT_QUOTES) ?>" alt="<?= htmlspecialchars($title) ?>" loading="lazy" width="512" height="279" />
                         <span class="absolute top-3 <?= IS_RTL ? 'right-3' : 'left-3' ?> z-20 font-label-badge text-label-badge bg-surface-dim/80 backdrop-blur-md text-<?= $accent ?> px-2.5 py-1 rounded border border-<?= $accent ?>/30 font-semibold">
                             <?= htmlspecialchars($badge) ?>
                         </span>

@@ -12,7 +12,7 @@
                     <span class="material-symbols-outlined text-[16px]">history_edu</span>
                     <span><?= __t('about.tag') ?></span>
                 </div>
-                <h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold leading-tight"><?= __t('about.heading') ?></h2>
+                <h1 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold leading-tight"><?= __t('about.heading') ?></h1>
                 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                     <?= __t('about.p1') ?>
                 </p>

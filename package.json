@@ -1,0 +1,11 @@
+{
+  "name": "fayezcoder-portfolio",
+  "private": true,
+  "version": "3.6.1",
+  "scripts": {
+    "build": "tailwindcss -c tailwind.config.cjs -i assets/css/source.css -o assets/css/site.css --minify",
+    "test": "php tests/router.php && node --test tests/contact.test.cjs",
+    "package": "npm run build && python3 scripts/package.py"
+  },
+  "devDependencies": { "tailwindcss": "3.4.17" }
+}

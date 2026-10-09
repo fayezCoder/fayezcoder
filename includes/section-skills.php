@@ -11,7 +11,7 @@
                 <span class="material-symbols-outlined text-[16px]">data_object</span>
                 <span><?= __t('skills.tag') ?></span>
             </div>
-            <h2 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold"><?= __t('skills.heading') ?></h2>
+            <h1 class="font-headline-xl text-3xl sm:text-4xl text-on-surface font-bold"><?= __t('skills.heading') ?></h1>
             <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed"><?= __t('skills.desc') ?></p>
         </div>
 

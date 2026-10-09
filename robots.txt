@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /config/
+Disallow: /includes/
+Disallow: /lang/
+Disallow: /index.php
+
+Sitemap: https://fayezcoder.com/sitemap.xml

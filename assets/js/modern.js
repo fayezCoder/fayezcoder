@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Collapse after choosing a destination
         drawer.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeDrawer));
 
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !drawer.classList.contains('hidden')) {
+                closeDrawer();
+                menuBtn.focus();
+            }
+        });
+
         // Reset state when resizing back to desktop
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 1024) closeDrawer();
@@ -92,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const leadForm = document.getElementById('lead-form');
     if (leadForm) {
         const feedback = document.getElementById('form-feedback');
-        const submitBtn = document.getElementById('submit-btn');
         const isArabic = (document.documentElement.lang || 'ar').toLowerCase().indexOf('ar') === 0;
 
         const fieldValue = (id) => {
@@ -120,8 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = categorySelect ? categorySelect.options[categorySelect.selectedIndex].text.trim() : '';
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-            if (!name || !email || !phone || !message || !emailPattern.test(email)) {
+            const invalid = ['lead-name', 'lead-email', 'lead-phone', 'lead-message']
+                .map(id => document.getElementById(id))
+                .find(field => !field.value.trim() || !field.checkValidity() ||
+                    (field.id === 'lead-email' && !emailPattern.test(field.value.trim())));
+            if (invalid) {
                 showFeedback(leadForm.dataset.errorMessage || 'Please fill in all required fields accurately.', true);
+                invalid.setAttribute('aria-invalid', 'true');
+                invalid.setAttribute('aria-describedby', 'form-feedback');
+                invalid.focus();
                 return;
             }
 
@@ -147,25 +160,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             showFeedback(leadForm.dataset.successMessage || 'Opening WhatsApp with your request...', false);
 
-            const label = submitBtn ? submitBtn.querySelector('[data-btn-label]') : null;
-            if (submitBtn) {
-                if (label) label.textContent = submitBtn.dataset.sentLabel || label.textContent;
-                submitBtn.disabled = true;
-            }
-
-            const opened = window.open(whatsappUrl, '_blank', 'noopener');
-            if (!opened) {
-                // Popup blocked fallback: continue in the current tab
-                window.location.href = whatsappUrl;
-            }
-
-            window.setTimeout(() => {
-                leadForm.reset();
-                if (submitBtn) {
-                    if (label) label.textContent = submitBtn.dataset.idleLabel || label.textContent;
-                    submitBtn.disabled = false;
-                }
-            }, 1200);
+            // A single same-tab hand-off avoids popup blockers and duplicate opens.
+            // Preserve entered values so returning to the page never loses a request.
+            window.location.assign(whatsappUrl);
         });
+        leadForm.addEventListener('input', (event) => {
+            event.target.removeAttribute('aria-invalid');
+            event.target.removeAttribute('aria-describedby');
+        });
+        // Only enable submission after the handler has been installed.
+        const fields = document.getElementById('lead-fields');
+        if (fields) fields.disabled = false;
     }
 });

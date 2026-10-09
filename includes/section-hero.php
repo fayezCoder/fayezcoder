@@ -43,11 +43,11 @@
 
                 <!-- High-Conversion CTAs -->
                 <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-                    <a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-tertiary-container hover:bg-tertiary text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_25px_rgba(225,29,72,0.35)]" href="#projects">
+                    <a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-tertiary-container text-on-tertiary-container hover:bg-tertiary hover:text-on-tertiary font-headline-sm text-headline-sm font-semibold transition-all duration-200 hover:scale-[1.02] shadow-[0_0_25px_rgba(225,29,72,0.35)]" href="<?= fc_url('projects') ?>">
                         <span><?= __t('hero.cta_featured') ?></span>
                         <span class="material-symbols-outlined text-[20px]">arrow_downward</span>
                     </a>
-                    <a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm border border-outline-variant/40 transition-all duration-200 hover:scale-[1.02]" href="#contact">
+                    <a class="inline-flex items-center justify-center gap-space-xs px-space-lg py-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm border border-outline-variant/40 transition-all duration-200 hover:scale-[1.02]" href="<?= fc_url('contact') ?>">
                         <span class="material-symbols-outlined text-secondary text-[20px]">terminal</span>
                         <span><?= __t('hero.cta_consult') ?></span>
                     </a>
