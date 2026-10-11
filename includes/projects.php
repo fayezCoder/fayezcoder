@@ -48,7 +48,7 @@ return [
         ],
         'category' => 'aviation mobile',
         'category_badge' => [
-            'ar' => 'عسكري / مؤسسي',
+            'ar' => 'الطيران / مؤسسي',
             'en' => 'Military / Enterprise'
         ],
         'client' => [
