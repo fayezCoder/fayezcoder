@@ -19,7 +19,7 @@
             <!-- Dynamic Category Filter Pills -->
             <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-surface-container-low border border-outline-variant/30">
                 <button class="filter-btn px-space-md py-1.5 rounded-lg font-headline-sm text-xs font-semibold transition-all bg-primary-container text-on-primary-container shadow-sm" data-filter="all">
-                    <?= __t('portfolio.filter_all') ?>
+                    <?= CURRENT_LANG === 'ar' ? 'الكل (' . count($projects) . ')' : 'All Work (' . count($projects) . ')' ?>
                 </button>
                 <button class="filter-btn px-space-md py-1.5 rounded-lg font-headline-sm text-xs font-semibold transition-all text-on-surface-variant hover:text-on-surface" data-filter="mobile">
                     <?= __t('portfolio.filter_mobile') ?>

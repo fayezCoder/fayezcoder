@@ -182,7 +182,7 @@ return [
 
         'desc' => 'Every product represents production deployment, high-concurrency offline sync, or mission-critical aviation tracking.',
 
-        'filter_all' => 'All Work (6)',
+        'filter_all' => 'All Work (7)',
 
         'filter_mobile' => 'Mobile Apps',
 
