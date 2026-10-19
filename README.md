@@ -1,126 +1,75 @@
-# FayezCoder Portfolio
+# Hi, I'm Fayez 👋
 
-A multilingual personal portfolio and project showcase for Fayez Almutairi, built as a lightweight PHP website with Tailwind-powered styling and clean URL routing.
+Full-stack developer and digital product builder focused on clean interfaces, scalable systems, and business-focused web experiences.
 
-This repository powers the public portfolio at fayezcoder.com and showcases aviation, mobile, and enterprise-focused software work.
+I design and build professional websites, portfolio experiences, and web applications with a strong emphasis on usability, performance, and conversion-driven results.
 
-## Overview
+Website: https://fayezcoder.com  
+Email: fayez.coder@gmail.com
 
-This project is a custom-built portfolio website designed to:
+---
 
-- present projects and services in Arabic and English
-- support clean SEO-friendly URLs
-- render a polished cyberpunk-inspired visual design
-- direct leads to WhatsApp for quick contact
-- operate without a database or backend API for simple deployment
+## About Me
 
-## Tech Stack
+I help businesses and creators turn ideas into polished digital experiences. My work spans portfolio websites, product showcases, and custom web solutions built to be fast, reliable, and easy to maintain.
 
-- PHP 8+
-- Tailwind CSS
-- JavaScript
-- HTML / CSS
-- Apache / LiteSpeed hosting compatible
-- Static asset pipeline with Node.js
+- 🌍 Based in Saudi Arabia
+- 💼 Focus: Web development, UI/UX, digital portfolios, custom business sites
+- 🚀 Interests: product design, automation, performance optimization, modern frontend workflows
+- 🤝 Open to collaborations, freelance work, and product-focused projects
 
-## Features
+---
 
-- Bilingual experience: Arabic and English
-- Clean URL structure and canonical redirect handling
-- Responsive design for desktop and mobile
-- Project showcase with cards and dynamic details
-- WhatsApp contact integration
-- Structured SEO metadata and sitemap support
-- Production-ready deployment configuration for shared hosting
+## Core Skills
 
-## Repository Structure
+- JavaScript / TypeScript
+- PHP
+- HTML / CSS / Tailwind CSS
+- Responsive frontend design
+- SEO-friendly website architecture
+- Deployment and production hosting setup
+- Git / GitHub workflows
+- API and integration-driven web development
 
-```text
-.
-├── assets/               # Images, fonts, CSS assets
-├── config/               # Application configuration
-├── css/                  # Legacy / static CSS files
-├── includes/              # Layout, pages, router, translation logic
-├── js/                   # JavaScript frontend logic
-├── lang/                 # Language resources and translations
-├── scripts/              # Packaging and deployment utilities
-├── tests/                # Test suite for routes and contact logic
-├── .htaccess             # URL rewrite and server rules
-├── DEPLOYMENT.md         # Hosting and deployment notes
-├── PRELAUNCH_REVIEW.md   # Pre-launch checklist and review docs
-├── index.php             # Application entry point
-├── package.json          # Build and test scripts
-├── tailwind.config.cjs   # Tailwind configuration
-├── robots.txt            # Search engine crawler rules
-├── sitemap.xml           # XML sitemap
-├── .gitignore            # Git ignore rules
-└── README.md             # Project overview
-```
+---
 
-## Local Development
+## Featured Work
 
-### Prerequisites
+### FayezCoder Portfolio
+A modern personal portfolio and business showcase built to highlight projects, services, and contact pathways in a clean and professional experience.
 
-- PHP 8+
-- Node.js and npm
-- A local web server (or PHP built-in server)
+- Website: https://fayezcoder.com
+- Repository: https://github.com/fayezCoder/fayezcoder
 
-### Install dependencies
+### Custom Web Experiences
+I build custom websites and landing pages tailored to individual brands, portfolios, and digital products. These projects prioritize clarity, trust, and conversion.
 
-```bash
-npm ci
-```
+---
 
-### Build frontend assets
+## Why Work With Me?
 
-```bash
-npm run build
-```
+- Professional, modern, and conversion-aware design
+- Clean code and maintainable structure
+- Fast-loading and mobile-friendly experiences
+- Clear communication and business-first thinking
+- Practical implementation for real-world needs
 
-### Run tests
-
-```bash
-npm test
-```
-
-### Package for deployment
-
-```bash
-npm run package
-```
-
-## Production Notes
-
-The project is configured for shared hosting environments and is designed to work without a database. The deployment flow is documented in:
-
-- `DEPLOYMENT.md`
-
-This repo also includes a production-ready static packaging step that prepares the deployable bundle.
-
-## Deployment
-
-The site is intended for deployment to hosting providers such as Hostinger, using a production bundle that includes built assets and `.htaccess` rules for URL rewriting and clean routing.
-
-For more details, see:
-
-- `DEPLOYMENT.md`
-
-## Project Highlights
-
-This portfolio includes work spanning:
-
-- aviation software
-- mobile applications
-- internal enterprise tools
-- web platforms and digital product showcases
+---
 
 ## Contact
 
-For business inquiries or collaboration opportunities:
-
-- WhatsApp: +966 55 586 1780
+- Email: fayez.coder@gmail.com
 - Website: https://fayezcoder.com
+- GitHub: https://github.com/fayezCoder
 
-## License
+---
 
-This project is a personal portfolio repository and may not be intended for public reuse without permission. If you want to reuse or adapt the project structure, please contact the repository owner first.
+## GitHub Stats
+
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=fayezCoder&show_icons=true&theme=dark)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=fayezCoder&layout=compact&theme=dark)
+
+---
+
+> Building clean, useful, and professional digital experiences for people and businesses.
