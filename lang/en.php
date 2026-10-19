@@ -94,7 +94,7 @@ return [
 
         'stat1_sub' => 'Published to global production stores',
 
-        'stat2_val' => '3+',
+        'stat2_val' => '5+',
 
         'stat2_label' => 'Years Experience',
 
@@ -203,7 +203,7 @@ return [
 
         'heading' => 'From Intensive Academy Training to Specialized Mission Software',
 
-        'p1' => 'My programming journey began in November 2021 at <strong class="text-on-surface">Tuwaiq Academy</strong>. Over the last 3+ years, I have transformed technical fundamentals into mission-critical applications deployed across mobile stores and production environments.',
+        'p1' => 'My programming journey began in November 2021 at <strong class="text-on-surface">Tuwaiq Academy</strong>. Over the last 5 years, I have transformed technical fundamentals into mission-critical applications deployed across mobile stores and production environments.',
 
         'p2' => 'My engineering philosophy merges rigid architectural discipline with empathetic, fast-loading user interfaces. Having built systems for demanding industries like aviation, I demand 100% offline resilience and data integrity in every build.',
 
@@ -349,7 +349,7 @@ return [
         ],
         'about' => [
             'title' => 'About Fayez Almutairi | Background & Accreditation',
-            'desc' => 'Tuwaiq Academy alumnus, MHRSD-accredited engineer, and Google Play Console publisher with 3+ years of production experience.',
+            'desc' => 'Tuwaiq Academy alumnus, MHRSD-accredited engineer, and Google Play Console publisher with 5+ years of production experience.',
         ],
         'skills' => [
             'title' => 'Technical Skills & Tooling | Fayez Almutairi',
